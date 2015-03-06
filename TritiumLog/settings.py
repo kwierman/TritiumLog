@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'logbook'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 WSGI_APPLICATION = 'TritiumLog.wsgi.application'
 
