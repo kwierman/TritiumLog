@@ -1,0 +1,27 @@
+{{ logbooks }}
+
+
+
+<!--h1>{{ model.name }}</h1>
+<ul>
+{% for log in logbooks.choice_set.all %}
+    <li>{{ log.name }}</li>
+{% endfor %}
+</ul-->
+
+<h1>{{ logbooks.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'logbooks:log' logbooks.id %}" method="post">
+{% csrf_token %}
+{% for log in logbooks.log_set.all %}
+    <input type="radio" name="log" id="log{{ forloop.counter }}" value="{{ log.id }}" />
+    <label for="log{{ forloop.counter }}">{{ log.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Enter" />
+</form>
+
+
+
+

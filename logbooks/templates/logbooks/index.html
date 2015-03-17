@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+{% else %}
+<p>Welcome, new user. Please log in.</p>
+{% endif %}
+<h4>Recent Logbooks</h4>
+{% if latest_logbook_list %}
+    <ul>
+    {% for logbook in latest_logbook_list %}
+        <li><a href="{% url 'logbooks:log_book_detail' logbook.id %}">{{ logbook.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No logbooks are available.</p>
+{% endif %}
+
+{% endblock %}

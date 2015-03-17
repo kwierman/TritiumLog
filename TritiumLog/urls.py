@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.contrib import admin, auth
+from django.contrib.auth.views import login, logout, password_reset
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'TritiumLog.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+	url(r'^$', include('home.urls', namespace='home') ),  
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^logbook/', include('logbook.urls', namespace="logbook")),
+    url(r'^logbooks/', include('logbooks.urls', namespace="logbooks")),
+    url(r'^accounts/login/$', login),
+    url(r'^accounts/password_reset/$', password_reset),
+    url(r'^accounts/logout/$', logout ),
 ]
 

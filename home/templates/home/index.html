@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+<h2>Welcome to Tritium Log</h3>
+<h3>The logging front end to the Tritium Analysis workflow</h3>
+Load the current logbook installation <a href="{% url 'logbooks:index' %}">here</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>List of Logs for: 
+{%if logbook %}
+	{{logbook.name}}
+{% endif %}
+</h1>
+{% if logs %}
+    <ul>
+    {% for log in logs %}
+        <li><a href="{% url 'logbooks:log_document_detail' logbook.id log.id %}">{{ log.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No logbooks are available.</p>
+{% endif %}
+{% endblock %}
+
+
+
+
